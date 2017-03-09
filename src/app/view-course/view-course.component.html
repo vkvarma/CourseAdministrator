@@ -1,0 +1,17 @@
+<div class="col-sm-5 col-md-3 well well-block">
+    <span class="pull-right">
+        <a [routerLink]="['/addCourse',course.id]"><i  class="fa fa-edit fa-lg mouse-hover text-primary" title="Edit Course"></i></a> &nbsp;
+        <i class="fa fa-remove fa-lg mouse-hover text-primary" title="Remove Course" (click)="removeCourse()"></i>
+    </span>
+    <p>
+        <input type="checkbox" [checked]="course.isSelected" (click)="isChecked($event.target.checked)" >
+        <strong>{{course.title}}</strong>
+        <a [routerLink]="['/students',course.id]">
+            <span class="badge mouse-hover" title="Registered Students">
+                {{course.registeredStudents}}</span></a><br>
+        <span class="small"><strong><i>Max no. of students {{course.maxNoOfStudents}}</i></strong></span>
+
+    </p>
+    <span class="word-wrap-multiline" title="{{course.description}}">{{course.description}}</span>
+</div>
+

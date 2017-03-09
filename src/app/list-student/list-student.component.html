@@ -1,0 +1,90 @@
+<!--Student List -->
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">&nbsp;&nbsp;
+            <strong><span class="h4">Students List </span></strong>
+            <!--
+            <span class="pull-right fa fa-address-card fa-lg mouse-hover " data-toggle="modal"
+                  data-target="#myModal" title="Move selected">&nbsp;</span>
+            -->
+        </div>
+        <div class="panel-body">
+            <div class="row" style="display:none">
+                <div class="col-sm-12 col-md-12,col-lg-12 h4">Registered in <strong><i class="text-primary"> Software Engineering!</i></strong></div>
+            </div>
+            <div class="row">
+                <app-view-student *ngFor="let student of studentList"
+                        [student]="student" (studentChange)="ngOnChanges($event)"
+                        (selectedStudentsChange)="onSelectedStudentsChange($event)"></app-view-student>
+            </div>
+            <div class="row " style="display:none">
+                <div class="col-sm-5 col-md-3 well well-block">
+                    <span class="pull-right">
+                        <i  class="fa fa-edit fa-lg mouse-hover text-primary" title="Edit Course"></i>&nbsp;
+                        <i class="fa fa-remove fa-lg mouse-hover text-primary" title="Remove Course"></i>
+                    </span>
+                    <p>
+                        <input type="checkbox">
+                        <strong>Muhammad Ahmed</strong><br><br>
+                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2000</span></strong><br>
+                        <span class="word-wrap-multiline">Software Engineering, Artificial Intelligence, Project Menagment, Networking, Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
+                    </p>
+                </div>
+                <div class="col-sm-5 col-md-3 well well-block">
+                    <span class="pull-right">
+                        <i  class="fa fa-edit fa-lg mouse-hover" title="Edit Course"></i>&nbsp;
+                        <i class="fa fa-remove fa-lg mouse-hover" title="Remove Course"></i>
+                    </span>
+                    <p>
+                        <input type="checkbox">
+                        <strong>Muhammad Saeed Ahmed</strong><br><br>
+                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2002</span></strong>
+                        <span class="word-wrap-multiline">Software Engineering, Artificial Intelligence, Project Menagment, Networking, Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
+                    </p>
+                </div>
+                <div class="col-sm-5 col-md-3 well well-block">
+                    <span class="pull-right">
+                        <i  class="fa fa-edit fa-lg mouse-hover" title="Edit Course"></i>&nbsp;
+                        <i class="fa fa-remove fa-lg mouse-hover" title="Remove Course"></i>
+                    </span>
+                    <p>
+                        <input type="checkbox">
+                        <strong>Brain Adam</strong><br><br>
+                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2003</span></strong>
+                        <span class="word-wrap-multiline">Software Engineering, Artificial Intelligence, Project Menagment, Networking, Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
+                    </p>
+                </div>
+                <div class="col-sm-5 col-md-3 well well-block">
+                    <span class="pull-right">
+                        <i  class="fa fa-edit fa-lg mouse-hover" title="Edit Course"></i>&nbsp;
+                        <i class="fa fa-remove fa-lg mouse-hover" title="Remove Course"></i>
+                    </span>
+                    <p>
+                        <input type="checkbox">
+                        <strong>Micheal Paul</strong><br><br>
+                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2002</span></strong>
+                        <span class="word-wrap-multiline">Software Engineering, Artificial Intelligence, Project Menagment, Networking, Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
+                    </p>
+                </div>
+                <div class="col-sm-5 col-md-3 well well-block">
+                    <span class="pull-right">
+                        <i  class="fa fa-edit fa-lg mouse-hover" title="Edit Course"></i>&nbsp;
+                        <i class="fa fa-remove fa-lg mouse-hover" title="Remove Course"></i>
+                    </span>
+                    <p>
+                        <input type="checkbox">
+                        <strong>Jasey Borden</strong><br><br>
+                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2003</span></strong>
+                        <span class="word-wrap-multiline">Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row"></div>
+        <div class="panel-footer"><strong>Total Students: {{studentList.length}}</strong></div>
+
+
+    </div>
+</div>

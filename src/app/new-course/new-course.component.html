@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="h4">{{headerText}}</span> </strong></div>
+                <div class="panel-body">
+                    <form #newCourse="ngForm" (ngSubmit)="registerCourse(newCourse)"
+                          class="form-horizontal">
+                        <fieldset>
+                            <legend>Course Details</legend>
+                            <div class="form-group">
+                                <label for="txtTitle" class="col-lg-2 control-label">Ttile</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" required
+                                           name="course.title" [(ngModel)]="course.title" placeholder="Course title" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtDescription" class="col-lg-2 control-label">Description</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" rows="3" id="description" required name="course.description" [(ngModel)]="course.description" placeholder="Course description"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ddlNoOfStudents" class="col-lg-2 control-label">
+                                    Max. Students</label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" required id="maxNoOfStudents" name="course.maxNoOfStudents" [(ngModel)]="course.maxNoOfStudents">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>15</option>
+                                        <option>20</option>
+                                        <option>25</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" *ngIf="editCourseId>0 && registerStudent">
+                                <label for="ddlNoOfStudents" class="col-lg-2 control-label">
+                                    Reg. Students</label>
+                                <div class="col-lg-10">
+                                    <ul class="list-group">
+                                        <li class="list-group-item list-group-item-default mouse-hover small"
+                                            *ngFor="let student of registerStudent.student">
+                                            <span>{{student.firstName}}, {{student.lastName}}</span>
+                                            &nbsp;&nbsp; <i class="fa fa-remove fa-lg" (click)="removeStudent(student)"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <button class="btn btn-default" (click)="reset()">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

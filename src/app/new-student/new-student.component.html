@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="h4">{{headerText}}</span> </strong></div>
+                <div class="panel-body">
+                    <form #newStudent="ngForm" class="form-horizontal" (ngSubmit)="registerNewStudent(newStudent)">
+                        <fieldset>
+                            <legend>Student Details</legend>
+                            <div class="form-group">
+                                <label for="txtFirstName" class="col-lg-2 control-label">First Name</label>
+                                <div class="col-lg-10">
+                                    <input type="text" required class="form-control" name="student.firstName" [(ngModel)]="student.firstName"  placeholder="First name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtLastName" class="col-lg-2 control-label">Last Name</label>
+                                <div class="col-lg-10">
+                                    <input type="text" required class="form-control" name="student.lastName" [(ngModel)]="student.lastName"  placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ddlYear" class="col-lg-2 control-label">School in Year</label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" required name="student.schoolInYear" [(ngModel)]="student.schoolInYear" >
+                                        <option>2000</option>
+                                        <option>2001</option>
+                                        <option>2002</option>
+                                        <option>2003</option>
+                                        <option>2004</option>
+                                        <option>2005</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" *ngIf="editStudenId>0 && studentCourseList.length>0">
+                                <label for="ddlNoOfStudents" class="col-lg-2 control-label">
+                                    Reg. Courses</label>
+                                <div class="col-lg-10">
+                                    <ul class="list-group">
+                                        <li class="list-group-item list-group-item-default mouse-hover small"
+                                            *ngFor="let course of studentCourseList">
+                                            <span>{{course.title}}</span>
+                                            &nbsp;&nbsp; <i class="fa fa-remove fa-lg" (click)="removeCourse(course)"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <button class="btn btn-default" (click)="reset()">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

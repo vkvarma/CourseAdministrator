@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">&nbsp;&nbsp;
+            <strong><span class="h4">Courses List</span></strong>
+            <!--<span class="pull-right fa fa-remove fa-lg mouse-hover" title="Remove selected">&nbsp;</span>-->
+            <span modal-trigger class="pull-right fa fa-address-card fa-lg mouse-hover" data-toggle="modal"
+                  data-target="#myModal" title="Register students in selected course(s)">&nbsp;</span>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <app-view-course
+                    *ngFor="let course of courseList" [course]="course"
+                        (courseChange)="ngOnChanges($event)"
+                        (selectedCoursesChange)="onSelectedCoursesChange($event)">
+                </app-view-course>
+            </div>
+
+        </div>
+        <div class="row"></div>
+        <div class="panel-footer"><strong> Total Courses: {{courseList.length}}</strong></div>
+    </div>
+</div>
+
+<!-- CUSTOM MODAL COMPONENT -->
+<custom-modal title="Students List" actionType="student" (notifyParent)="updateChanges($event)">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Registering students in following {{selectedCourseList.length}} course(s)<br>
+        <span *ngIf="selectedCourseList.length>0" class="text-primary small">
+            <strong><i>{{selectedCourses}}</i> </strong>
+        </span>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <ul class="list-group">
+                <li *ngFor="let student of studentList"
+                    class="list-group-item list-group-item-default mouse-hover">
+                    <input type="checkbox" [checked]="student.isSelected" (change)="student.isSelected=!student.isSelected" > {{student.firstName}}, {{student.lastName}}
+                    <span class="badge mouse-hover" title="Registered in year">{{student.schoolInYear}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</custom-modal>
