@@ -8,11 +8,13 @@ export class StudentService {
     constructor() {
         StudentService.studentList = new Array<Student>();
         StudentService.maxStudentId = 5;
+        this.populateStudents();
     }
 
     getStudentList(): Array<Student> {
-        if(StudentService.studentList.length) return StudentService.studentList;
-
+        return StudentService.studentList;
+    }
+    private populateStudents(){
         StudentService.studentList.
         push({ id: 1, firstName: 'Muhammad', lastName: 'Ahmed', schoolInYear: 2000, isSelected: false });
 
@@ -27,8 +29,6 @@ export class StudentService {
 
         StudentService.studentList.
         push({ id: 5, firstName: 'Imran', lastName: 'Khan', schoolInYear: 2002, isSelected: false });
-
-        return StudentService.studentList;
     }
     addStudent(student: Student){
         StudentService.studentList.push(student);

@@ -3,7 +3,7 @@
         <div class="panel-heading">&nbsp;&nbsp;
             <strong><span class="h4">Courses List</span></strong>
             <!--<span class="pull-right fa fa-remove fa-lg mouse-hover" title="Remove selected">&nbsp;</span>-->
-            <span modal-trigger class="pull-right fa fa-address-card fa-lg mouse-hover" data-toggle="modal"
+            <span *ngIf="courseList.length>0" modal-trigger class="pull-right fa fa-address-card fa-lg mouse-hover" data-toggle="modal"
                   data-target="#myModal" title="Register students in selected course(s)">&nbsp;</span>
         </div>
         <div class="panel-body">

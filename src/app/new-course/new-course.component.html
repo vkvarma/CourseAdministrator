@@ -12,20 +12,20 @@
                                 <label for="txtTitle" class="col-lg-2 control-label">Ttile</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" required
-                                           name="course.title" [(ngModel)]="course.title" placeholder="Course title" >
+                                           name="course.title" [ngModel]="course.title" placeholder="Course title" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txtDescription" class="col-lg-2 control-label">Description</label>
                                 <div class="col-lg-10">
-                                    <textarea class="form-control" rows="3" id="description" required name="course.description" [(ngModel)]="course.description" placeholder="Course description"></textarea>
+                                    <textarea class="form-control" rows="3" id="description" required name="course.description" [ngModel]="course.description" placeholder="Course description"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="ddlNoOfStudents" class="col-lg-2 control-label">
                                     Max. Students</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" required id="maxNoOfStudents" name="course.maxNoOfStudents" [(ngModel)]="course.maxNoOfStudents">
+                                    <select class="form-control" required id="maxNoOfStudents" name="course.maxNoOfStudents" [ngModel]="course.maxNoOfStudents">
                                         <option>5</option>
                                         <option>10</option>
                                         <option>15</option>
@@ -34,7 +34,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group" *ngIf="editCourseId>0 && registerStudent">
+                            <div class="form-group" *ngIf="editCourseId>0 && registerStudent && registerStudent.student.length>0">
                                 <label for="ddlNoOfStudents" class="col-lg-2 control-label">
                                     Reg. Students</label>
                                 <div class="col-lg-10">
@@ -51,14 +51,12 @@
 
                             <div class="form-group">
                                 <div class="col-lg-10 col-lg-offset-2">
-                                    <button class="btn btn-default" (click)="reset()">Cancel</button>
+                                    <button type="button" class="btn btn-default" (click)="reset()">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </fieldset>
                     </form>
-
-
                 </div>
             </div>
         </div>

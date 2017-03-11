@@ -10,19 +10,19 @@
                             <div class="form-group">
                                 <label for="txtFirstName" class="col-lg-2 control-label">First Name</label>
                                 <div class="col-lg-10">
-                                    <input type="text" required class="form-control" name="student.firstName" [(ngModel)]="student.firstName"  placeholder="First name">
+                                    <input type="text" required class="form-control" name="student.firstName" [ngModel]="student.firstName"  placeholder="First name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txtLastName" class="col-lg-2 control-label">Last Name</label>
                                 <div class="col-lg-10">
-                                    <input type="text" required class="form-control" name="student.lastName" [(ngModel)]="student.lastName"  placeholder="Last name">
+                                    <input type="text" required class="form-control" name="student.lastName" [ngModel]="student.lastName"  placeholder="Last name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="ddlYear" class="col-lg-2 control-label">School in Year</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" required name="student.schoolInYear" [(ngModel)]="student.schoolInYear" >
+                                    <select class="form-control" required name="student.schoolInYear" [ngModel]="student.schoolInYear" >
                                         <option>2000</option>
                                         <option>2001</option>
                                         <option>2002</option>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-10 col-lg-offset-2">
-                                    <button class="btn btn-default" (click)="reset()">Cancel</button>
+                                    <button type="button" (click)="reset()" class="btn btn-default">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>

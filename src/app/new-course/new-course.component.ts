@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Course } from './../shared/business-object/course';
 import { Student } from './../shared/business-object/student';
 import { RegisterStudent } from './../shared/business-object/register-student';
+import { StudentCourses } from './../shared/business-object/student-course';
 import { FacadeService } from './../shared/service/facade.service';
 
 
@@ -16,6 +17,8 @@ export class NewCourseComponent implements OnInit {
     course:Course;
     editCourseId:number;
     registerStudent: RegisterStudent;
+    studentCourse: StudentCourses;
+    studentCourseList: Array<Course>;
     headerText:string;
     private sub:any;
 
@@ -23,6 +26,8 @@ export class NewCourseComponent implements OnInit {
         this.course = new Course();
         this.editCourseId = 0;
         this.registerStudent = new RegisterStudent();
+        this.studentCourse = new StudentCourses();
+        this.studentCourseList = new Array<Course>();
         this.headerText = "Add Course";
     }
 
@@ -41,7 +46,6 @@ export class NewCourseComponent implements OnInit {
         }
     }
     registerCourse(form: NgForm){
-
         this.course.title = form.value["course.title"];
         this.course.description = form.value["course.description"];
         this.course.maxNoOfStudents = form.value["course.maxNoOfStudents"];
@@ -70,10 +74,25 @@ export class NewCourseComponent implements OnInit {
     getAllStudentsByCourseId(courseId: number): RegisterStudent{
         return this.facadeService.getAllStudentsByCourseId(courseId);
     }
+    getAllCourseByStudentId(id: number) {
+        this.studentCourse = this.facadeService.getAllCourseByStudentId(id);
+        if(this.studentCourse && this.studentCourse.course){
+            this.studentCourseList = this.studentCourse.course;
+        }
+    }
     removeStudent(student:Student){
         this.course.registeredStudents = this.course.registeredStudents - 1;
         let index = this.registerStudent.student.indexOf(student);
         this.registerStudent.student.splice(index,1);
+        this.updateStudentInfo(student,this.course);
+    }
+    updateStudentInfo(student:Student, course: Course){
+        this.getAllCourseByStudentId(student.id);
+        if(this.studentCourseList){
+            let index = this.studentCourseList.indexOf(course);
+            this.studentCourseList.splice(index, 1);
+        }
+
     }
 
 
