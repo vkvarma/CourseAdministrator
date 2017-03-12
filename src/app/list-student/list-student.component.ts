@@ -89,6 +89,7 @@ export class ListStudentComponent implements OnInit, OnDestroy, OnChanges {
             this.facadeService.removeStudentFromRegisterStudent(this.course,student);
         });
         this.studentsCount = this.studentList.length;
+        this.facadeService.updateStudentCourses();
         this.resetCourseList();
         this.resetStudentList();
     }
