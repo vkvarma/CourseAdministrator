@@ -6,8 +6,9 @@
     <p>
         <input type="checkbox" [checked]="course.isSelected" (click)="isChecked($event.target.checked)" >
         <strong>{{course.title}}</strong>
-            <span class="badge mouse-hover" title="Registered Students">
-                {{course.registeredStudents}}</span><br>
+        <a [routerLink]="['/students',course.id]">
+            <span class="badge mouse-hover" title="Click to move students to another course">
+                {{course.registeredStudents}}</span></a><br>
         <span class="small"><strong><i>Max no. of students {{course.maxNoOfStudents}}</i></strong></span>
 
     </p>

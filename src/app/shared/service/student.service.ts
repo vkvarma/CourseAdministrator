@@ -5,9 +5,15 @@ import { Student } from './../business-object/student';
 export class StudentService {
     static studentList: Array<Student>;
     static maxStudentId:number;
+    /*
+    studentListType: 1 - displaying all students
+    studentListType: 2 - displaying all students in sepecific course
+    */
+    static studentListType: number;
     constructor() {
         StudentService.studentList = new Array<Student>();
         StudentService.maxStudentId = 5;
+        StudentService.studentListType = 1;
         this.populateStudents();
     }
 
@@ -29,6 +35,10 @@ export class StudentService {
 
         StudentService.studentList.
         push({ id: 5, firstName: 'Imran', lastName: 'Khan', schoolInYear: 2002, isSelected: false });
+    }
+
+    setStudentListType(studentType:number) {
+        StudentService.studentListType = studentType;
     }
     addStudent(student: Student){
         StudentService.studentList.push(student);

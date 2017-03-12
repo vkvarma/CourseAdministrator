@@ -49,8 +49,6 @@ export class NewStudentComponent implements OnInit {
       this.student.lastName = form.value["student.lastName"];
       this.student.schoolInYear = form.value["student.schoolInYear"];
       this.student.isSelected = false;
-
-      console.log(this.student);
       if(this.editStudenId>0){
           this.facadeService.updateIndvidualStudent(this.student);
 

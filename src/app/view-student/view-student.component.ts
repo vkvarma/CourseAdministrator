@@ -12,6 +12,7 @@ export class ViewStudentComponent implements OnInit {
     @Input() student: Student;
     @Output() studentChange: EventEmitter<Student>;
     @Output() selectedStudentsChange : EventEmitter<Student>;
+    @Input() studentListType: number;
     studentCourse: StudentCourses;
     studentCourseFormattedString:string;
 

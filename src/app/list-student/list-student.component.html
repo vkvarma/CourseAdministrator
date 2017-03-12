@@ -3,88 +3,56 @@
     <div class="panel panel-default">
         <div class="panel-heading">&nbsp;&nbsp;
             <strong><span class="h4">Students List </span></strong>
-            <!--
-            <span class="pull-right fa fa-address-card fa-lg mouse-hover " data-toggle="modal"
-                  data-target="#myModal" title="Move selected">&nbsp;</span>
-            -->
+            <span *ngIf="studentListType===2 && studentList && studentList.length>0" modal-trigger class="pull-right fa fa-address-card fa-lg mouse-hover" data-toggle="modal"
+            data-target="#myModal" title="Move selected student(s) to other course(s)">&nbsp;</span>
         </div>
         <div class="panel-body">
-            <div class="row" style="display:none">
-                <div class="col-sm-12 col-md-12,col-lg-12 h4">Registered in <strong><i class="text-primary"> Software Engineering!</i></strong></div>
+            <div class="row" *ngIf="courseId>0 && studentsCount>0" >
+                <div class="col-sm-12 col-md-12,col-lg-12 h4">Registered in <strong><i class="text-primary"> {{course.title}}</i></strong></div>
             </div>
             <div class="row">
                 <app-view-student *ngFor="let student of studentList"
+                        [studentListType] = "studentListType"
                         [student]="student" (studentChange)="ngOnChanges($event)"
                         (selectedStudentsChange)="onSelectedStudentsChange($event)"></app-view-student>
             </div>
-            <div class="row " style="display:none">
-                <div class="col-sm-5 col-md-3 well well-block">
-                    <span class="pull-right">
-                        <i  class="fa fa-edit fa-lg mouse-hover text-primary" title="Edit Course"></i>&nbsp;
-                        <i class="fa fa-remove fa-lg mouse-hover text-primary" title="Remove Course"></i>
-                    </span>
-                    <p>
-                        <input type="checkbox">
-                        <strong>Muhammad Ahmed</strong><br><br>
-                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2000</span></strong><br>
-                        <span class="word-wrap-multiline">Software Engineering, Artificial Intelligence, Project Menagment, Networking, Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
-                    </p>
-                </div>
-                <div class="col-sm-5 col-md-3 well well-block">
-                    <span class="pull-right">
-                        <i  class="fa fa-edit fa-lg mouse-hover" title="Edit Course"></i>&nbsp;
-                        <i class="fa fa-remove fa-lg mouse-hover" title="Remove Course"></i>
-                    </span>
-                    <p>
-                        <input type="checkbox">
-                        <strong>Muhammad Saeed Ahmed</strong><br><br>
-                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2002</span></strong>
-                        <span class="word-wrap-multiline">Software Engineering, Artificial Intelligence, Project Menagment, Networking, Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
-                    </p>
-                </div>
-                <div class="col-sm-5 col-md-3 well well-block">
-                    <span class="pull-right">
-                        <i  class="fa fa-edit fa-lg mouse-hover" title="Edit Course"></i>&nbsp;
-                        <i class="fa fa-remove fa-lg mouse-hover" title="Remove Course"></i>
-                    </span>
-                    <p>
-                        <input type="checkbox">
-                        <strong>Brain Adam</strong><br><br>
-                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2003</span></strong>
-                        <span class="word-wrap-multiline">Software Engineering, Artificial Intelligence, Project Menagment, Networking, Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
-                    </p>
-                </div>
-                <div class="col-sm-5 col-md-3 well well-block">
-                    <span class="pull-right">
-                        <i  class="fa fa-edit fa-lg mouse-hover" title="Edit Course"></i>&nbsp;
-                        <i class="fa fa-remove fa-lg mouse-hover" title="Remove Course"></i>
-                    </span>
-                    <p>
-                        <input type="checkbox">
-                        <strong>Micheal Paul</strong><br><br>
-                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2002</span></strong>
-                        <span class="word-wrap-multiline">Software Engineering, Artificial Intelligence, Project Menagment, Networking, Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
-                    </p>
-                </div>
-                <div class="col-sm-5 col-md-3 well well-block">
-                    <span class="pull-right">
-                        <i  class="fa fa-edit fa-lg mouse-hover" title="Edit Course"></i>&nbsp;
-                        <i class="fa fa-remove fa-lg mouse-hover" title="Remove Course"></i>
-                    </span>
-                    <p>
-                        <input type="checkbox">
-                        <strong>Jasey Borden</strong><br><br>
-                        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">2003</span></strong>
-                        <span class="word-wrap-multiline">Modern Business, Operation Research, Theory of Automata, Robotics, Data Stcutrure, SQL Server, Programming in C#, Computer Architecture & Design </span>
-                    </p>
-                </div>
 
-            </div>
 
         </div>
         <div class="row"></div>
-        <div class="panel-footer"><strong>Total Students: {{studentList.length}}</strong></div>
+        <div class="panel-footer"><strong>Total Students: {{studentsCount}}</strong></div>
 
 
     </div>
 </div>
+
+<!-- CUSTOM MODAL COMPONENT -->
+<custom-modal title="Course List" actionType="course" (notifyParent)="updateChanges($event)">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Move following students:<br>
+            <span *ngIf="selectedStudentList.length>0" class="text-primary small">
+                <strong><i>{{selectedStudents}}</i> </strong>
+            </span>
+            <br>from
+            <span class="text-primary small">
+                <strong><i>{{course.title}}</i></strong>
+            </span>
+            to following selected course(s)<br>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <ul class="list-group">
+                    <li *ngFor="let course of courseList"
+                        class="list-group-item list-group-item-default mouse-hover">
+                        <input type="checkbox" [checked]="course.isSelected" (change)="course.isSelected=!course.isSelected" >
+                        {{course.title}}
+                        <span class="badge mouse-hover" title="Max. no. of Students">{{course.maxNoOfStudents}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</custom-modal>

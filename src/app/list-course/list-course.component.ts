@@ -11,22 +11,16 @@ import { FacadeService } from './../shared/service/facade.service';
   styleUrls: ['./list-course.component.css']
 })
 export class ListCourseComponent implements OnInit, OnChanges {
-    //courseDescription:string;
     courseList:Array<Course>;
     studentList:Array<Student>;
     selectedCourseList: Array<Course>;
-    //selectedStudentList: Array<Student>;
     selectedCourses:string;
 
     constructor(private facadeService: FacadeService) {
     this.courseList = new Array<Course>();
     this.studentList = new Array<Student>();
     this.selectedCourseList = new Array<Course>();
-    //this.selectedStudentList = new Array<Student>();
     this.selectedCourses = "";
-    /*
-    this.courseDescription = "When the first digital computers appeared in the early 1940s,[9] the instructions to make them operate were wired into the machine. Practitioners quickly realized that this design was not flexible and came up with the stored program architecture";
-    */
     }
 
     ngOnInit() {
@@ -50,7 +44,7 @@ export class ListCourseComponent implements OnInit, OnChanges {
         this.courseList = this.facadeService.getCourseList();
     }
     getStudentList(){
-        this.studentList = this.facadeService.getStudentList();
+        this.studentList = this.facadeService.getStudentList(0);
     }
     updateChanges(isSuccess){
         let selectedStudentList:Array<Student> = new Array<Student>();

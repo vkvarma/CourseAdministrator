@@ -125,8 +125,38 @@ export class CourseService {
     getAllStudentsByCourseId (id:number): RegisterStudent {
         return CourseService.registerStudentList.find(o=>o.course.id===id);
     }
+    getRegisterStudentByCourse(course:Course){
+        return CourseService.registerStudentList.find(o=>o.course.id===course.id);
+    }
+    isStudentExistInRegisterStudent(registerStudent:RegisterStudent,student:Student){
+        if(registerStudent.student){
+            return registerStudent.student.find(o=>o.id===student.id);
+        }
+        return null;
+    }
+    removeStudentFromRegisterStudent(course:Course, student:Student){
+        let registerStudent = this.getRegisterStudentByCourse(course);
+        let index = registerStudent.student.indexOf(student);
+        registerStudent.student.splice(index,1);
+        //if(registerStudent.course.registeredStudents>0){
+            registerStudent.course.registeredStudents--;
+        //}
 
+    }
 
+    assignCoursToStudents(course:Course, students:Array<Student>){
+        let currentRegisterStudent: RegisterStudent = this.getRegisterStudentByCourse(course);
+        if(!currentRegisterStudent){
+            CourseService.registerStudentList.push({course: course, student: Array<Student>()});
+        }
+        currentRegisterStudent = this.getRegisterStudentByCourse(course);
+        students.forEach(student=> {
+            if(!this.isStudentExistInRegisterStudent(currentRegisterStudent,student)) {
+                currentRegisterStudent.student.push(student);
+                currentRegisterStudent.course.registeredStudents++;
+            }
+        });
+    }
 
 
 }
