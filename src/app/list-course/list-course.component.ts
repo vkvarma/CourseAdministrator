@@ -26,6 +26,8 @@ export class ListCourseComponent implements OnInit, OnChanges {
     ngOnInit() {
         this.getCourseList();
         this.getStudentList();
+        this.resetCourseList();
+        this.resetStudentList();
     }
     ngOnChanges(selectedCourse) {
         let index = this.courseList.indexOf(selectedCourse);
