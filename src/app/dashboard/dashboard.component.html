@@ -1,28 +1,28 @@
 <div class="container-fluid">
-<div class="row">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Course Administrator  - Dashboard
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let course of courseList" >
-                    <div class="well well-lg" style="height:150px;">
-                        <strong><span class="h4 text-primary">{{course.title}}</span></strong> <br>
-                        <i class="fa fa-bar-chart fa-3x"></i>
-                        <strong>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Course Administrator - Dashboard
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let course of courseList">
+                        <div class="well well-lg">
+                            <strong><span class="h4 text-primary">{{course.title}}</span></strong> <br>
+                            <i class="fa fa-bar-chart fa-3x"></i>
+                            <strong>
                             Registered Students <span class="badge mouse-hover badge-fonts" title="Registered in school">{{course.registeredStudents}}</span>
                         </strong>
 
+                        </div>
                     </div>
-                </div>
 
+                </div>
+            </div>
+            <div class="panel-footer">
+                Total Course: {{courseList.length}}
             </div>
         </div>
-        <div class="panel-footer">
-            Total Course: {{courseList.length}}
-        </div>
-    </div>
 
-</div>
+    </div>
 </div>

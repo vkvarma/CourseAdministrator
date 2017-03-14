@@ -1,13 +1,16 @@
-<div class="col-sm-5 col-md-3 well well-block">
-    <span class="pull-right" *ngIf="studentListType===1">
+<div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="well well-block">
+        <span class="pull-right" *ngIf="studentListType===1">
         <a [routerLink]="['/addStudent/',student.id]">
             <i  class="fa fa-edit fa-lg mouse-hover text-primary" title="Edit Course"></i></a>&nbsp;
         <i class="fa fa-remove fa-lg mouse-hover text-primary" title="Remove Course" (click)="removeStudent()"></i>
     </span>
-    <p>
-        <input *ngIf="studentListType===2" type="checkbox" [checked]="student.isSelected" (click)="isChecked($event.target.checked)" >
-        <strong>{{student.firstName}}, {{student.lastName}}</strong><br><br>
-        <strong>Registered in school <span class="badge mouse-hover" data-toggle="modal" data-target="#myModal" title="Registered in school">{{student.schoolInYear}}</span></strong><br>
-        <span class="word-wrap-multiline">{{studentCourseFormattedString}}</span>
-    </p>
+        <p>
+            <input *ngIf="studentListType===2" type="checkbox" [checked]="student.isSelected" (click)="isChecked($event.target.checked)">
+            <strong>{{student.firstName}}, {{student.lastName}}</strong><br>
+            <strong class="small"><i> Registered in school 
+                <span class="badge mouse-hover small"  title="Registered in school">{{student.schoolInYear}}</span></i> </strong><br>
+            <span class="word-wrap-multiline">{{studentCourseFormattedString}}</span>
+        </p>
+    </div>
 </div>

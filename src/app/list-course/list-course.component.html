@@ -7,10 +7,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <app-view-course
-                    *ngFor="let course of courseList" [course]="course"
-                        (courseChange)="ngOnChanges($event)"
-                        (selectedCoursesChange)="onSelectedCoursesChange($event)">
+                <app-view-course *ngFor="let course of courseList" [course]="course" (courseChange)="ngOnChanges($event)" (selectedCoursesChange)="onSelectedCoursesChange($event)">
                 </app-view-course>
             </div>
 
@@ -22,25 +19,24 @@
 
 <!-- CUSTOM MODAL COMPONENT -->
 <custom-modal title="Student List" actionType="student" (notifyParent)="updateChanges($event)">
-<div class="panel panel-default">
-    <div class="panel-heading">
-        Registering students in following {{selectedCourseList.length}} course(s)<br>
-        <span *ngIf="selectedCourseList.length>0" class="text-primary small">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Registering students in following {{selectedCourseList.length}} course(s)<br>
+            <span *ngIf="selectedCourseList.length>0" class="text-primary small">
             <strong><i>{{selectedCourses}}</i> </strong>
         </span>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <ul class="list-group">
-                <li *ngFor="let student of studentList"
-                    class="list-group-item list-group-item-default mouse-hover">
-                    <input type="checkbox" [checked]="student.isSelected" (change)="student.isSelected=!student.isSelected" > {{student.firstName}}, {{student.lastName}}
-                    <span class="badge mouse-hover" title="Registered in year">{{student.schoolInYear}}</span>
-                </li>
-            </ul>
         </div>
-    </div>
+        <div class="panel-body">
+            <div class="row">
+                <ul class="list-group">
+                    <li *ngFor="let student of studentList" class="list-group-item list-group-item-default mouse-hover">
+                        <input type="checkbox" [checked]="student.isSelected" (change)="student.isSelected=!student.isSelected"> {{student.firstName}}, {{student.lastName}}
+                        <span class="badge mouse-hover" title="Registered in year">{{student.schoolInYear}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-</div>
+    </div>
 
 </custom-modal>

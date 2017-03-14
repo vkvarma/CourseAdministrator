@@ -4,15 +4,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><strong><span class="h4">{{headerText}}</span> </strong></div>
                 <div class="panel-body">
-                    <form #newCourse="ngForm" (ngSubmit)="registerCourse(newCourse)"
-                          class="form-horizontal">
+                    <form #newCourse="ngForm" (ngSubmit)="registerCourse(newCourse)" class="form-horizontal">
                         <fieldset>
                             <legend>Course Details</legend>
                             <div class="form-group">
                                 <label for="txtTitle" class="col-lg-2 control-label">Ttile</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" required
-                                           name="course.title" [ngModel]="course.title" placeholder="Course title" >
+                                    <input type="text" class="form-control" required name="course.title" [ngModel]="course.title" placeholder="Course title">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -39,10 +37,8 @@
                                     Reg. Students</label>
                                 <div class="col-lg-10">
                                     <ul class="list-group">
-                                        <li class="list-group-item list-group-item-default mouse-hover small"
-                                            *ngFor="let student of registerStudent.student">
-                                            <span>{{student.firstName}}, {{student.lastName}}</span>
-                                            &nbsp;&nbsp; <i class="fa fa-remove fa-lg" (click)="removeStudent(student)"></i>
+                                        <li class="list-group-item list-group-item-default mouse-hover small" *ngFor="let student of registerStudent.student">
+                                            <span>{{student.firstName}}, {{student.lastName}}</span> &nbsp;&nbsp; <i class="fa fa-remove fa-lg" (click)="removeStudent(student)"></i>
                                         </li>
                                     </ul>
                                 </div>
@@ -63,4 +59,3 @@
     </div>
 
 </div>
-

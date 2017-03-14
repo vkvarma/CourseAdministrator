@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 /*
 .row.no-gutters {
     margin-right: 0;
@@ -30,11 +32,12 @@ height: 50px;
 
 
 */
+
 li:hover {
     background-color: #002b36;
 }
 
-.mouse-hover{
+.mouse-hover {
     cursor: pointer;
     cursor: hand;
 }
@@ -44,22 +47,25 @@ li:hover {
 }
 
 .well-block {
-    margin:10px;
+    margin: 10px;
     box-shadow: 5px 5px 5px;
 }
+
 .div-margin {
-    margin-left:10px;
+    margin-left: 10px;
 }
+
 .badge-fonts {
     font-size: 24px !important;
 }
 
-
 .word-wrap-multiline {
-    display: block; /* Fallback for non-webkit */
+    display: block;
+    /* Fallback for non-webkit */
     display: -webkit-box;
     /*max-width: 400px;*/
-    height: 58.8px; /* font-size*line-height*line-clamp  Fallback for non-webkit */
+    height: 58.8px;
+    /* font-size*line-height*line-clamp  Fallback for non-webkit */
     margin: 0 auto;
     font-size: 14;
     line-height: 1.4;

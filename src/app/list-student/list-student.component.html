@@ -3,18 +3,16 @@
     <div class="panel panel-default">
         <div class="panel-heading">&nbsp;&nbsp;
             <strong><span class="h4">Students List </span></strong>
-            <span *ngIf="studentListType===2 && studentList && studentList.length>0" modal-trigger class="pull-right fa fa-address-card fa-lg mouse-hover" data-toggle="modal"
-            data-target="#myModal" title="Move selected student(s) to other course(s)">&nbsp;</span>
+            <span *ngIf="studentListType===2 && studentList && studentList.length>0" modal-trigger class="pull-right fa fa-address-card fa-lg mouse-hover"
+                data-toggle="modal" data-target="#myModal" title="Move selected student(s) to other course(s)">&nbsp;</span>
         </div>
         <div class="panel-body">
-            <div class="row" *ngIf="courseId>0 && studentsCount>0" >
+            <div class="row" *ngIf="courseId>0 && studentsCount>0">
                 <div class="col-sm-12 col-md-12,col-lg-12 h4">Registered in <strong><i class="text-primary"> {{course.title}}</i></strong></div>
             </div>
             <div class="row">
-                <app-view-student *ngFor="let student of studentList"
-                        [studentListType] = "studentListType"
-                        [student]="student" (studentChange)="ngOnChanges($event)"
-                        (selectedStudentsChange)="onSelectedStudentsChange($event)"></app-view-student>
+                <app-view-student *ngFor="let student of studentList" [studentListType]="studentListType" [student]="student" (studentChange)="ngOnChanges($event)"
+                    (selectedStudentsChange)="onSelectedStudentsChange($event)"></app-view-student>
             </div>
 
 
@@ -37,16 +35,13 @@
             <br>from
             <span class="text-primary small">
                 <strong><i>{{course.title}}</i></strong>
-            </span>
-            to following selected course(s)<br>
+            </span> to following selected course(s)<br>
         </div>
         <div class="panel-body">
             <div class="row">
                 <ul class="list-group">
-                    <li *ngFor="let course of courseList"
-                        class="list-group-item list-group-item-default mouse-hover">
-                        <input type="checkbox" [checked]="course.isSelected" (change)="course.isSelected=!course.isSelected" >
-                        {{course.title}}
+                    <li *ngFor="let course of courseList" class="list-group-item list-group-item-default mouse-hover">
+                        <input type="checkbox" [checked]="course.isSelected" (change)="course.isSelected=!course.isSelected">                        {{course.title}}
                         <span class="badge mouse-hover" title="Max. no. of Students">{{course.maxNoOfStudents}}</span>
                     </li>
                 </ul>

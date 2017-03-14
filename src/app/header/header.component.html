@@ -1,19 +1,29 @@
 <nav class="navbar navbar-default">
     <ul class="nav navbar-nav">
         <li><i class="fa fa-graduation-cap fa-3x"></i> </li>
-        <li [routerLinkActive]="'active'"><a routerLink="dashboard" >
-            <i class="fa fa-dashboard fa-lg" ></i> Dashboard</a></li>
-        <li [routerLinkActive]="'active'"><a routerLink="addCourse/0">
-            <i class="fa fa-book fa-lg"></i> Add Course </a></li>
-        <li [routerLinkActive]="'active'"><a routerLink="addStudent/0">
-            <i class="fa fa-user fa-lg"> </i> Add Student</a></li>
+        <li [routerLinkActive]="'active'">
+            <a routerLink="dashboard">
+                <i class="fa fa-dashboard fa-lg"></i> Dashboard</a>
+        </li>
+        <li [routerLinkActive]="'active'">
+            <a routerLink="addCourse/0">
+                <i class="fa fa-book fa-lg"></i> Add Course </a>
+        </li>
+        <li [routerLinkActive]="'active'">
+            <a routerLink="addStudent/0">
+                <i class="fa fa-user fa-lg"> </i> Add Student</a>
+        </li>
         <!--
         <li [routerLinkActive]="'active'"><a href="#">
             <i class="fa fa-address-card fa-lg"></i> Change Course</a></li>
         -->
-        <li [routerLinkActive]="'active'"><a routerLink="courses">
-            <i class="fa fa-list-alt fa-lg"></i> Course List</a></li>
-        <li [routerLinkActive]="'active'"><a routerLink="/students/0">
-            <i class="fa fa-list-ul fa-lg"></i> Studnet List</a></li>
+        <li [routerLinkActive]="'active'">
+            <a routerLink="courses">
+                <i class="fa fa-list-alt fa-lg"></i> Course List</a>
+        </li>
+        <li [routerLinkActive]="'active'">
+            <a routerLink="/students/0">
+                <i class="fa fa-list-ul fa-lg"></i> Student List</a>
+        </li>
     </ul>
 </nav>
