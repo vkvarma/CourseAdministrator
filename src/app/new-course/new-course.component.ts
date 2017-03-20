@@ -19,6 +19,7 @@ export class NewCourseComponent implements OnInit {
     registerStudent: RegisterStudent;
     studentCourse: StudentCourses;
     studentCourseList: Array<Course>;
+    initialRegisterStudent:RegisterStudent;
     headerText:string;
     private sub:any;
 
@@ -40,10 +41,14 @@ export class NewCourseComponent implements OnInit {
             this.headerText = "Edit Course";
             this.getCourseById(this.editCourseId);
             this.registerStudent = this.getAllStudentsByCourseId(this.editCourseId);
+            //this.initialRegisterStudent = Object.assign({},this.registerStudent);
+            //this.initialRegisterStudent = JSON.parse(JSON.stringify(this.registerStudent));
+            console.log(this.initialRegisterStudent);            
         }
         else{
             this.course = new Course();
         }
+
     }
     registerCourse(form: NgForm){
         this.course.title = form.value["course.title"];
@@ -69,7 +74,11 @@ export class NewCourseComponent implements OnInit {
         //console.log(this.course);
     }
     reset(){
+        //this.registerStudent = this.initialRegisterStudent;
+        //console.log(this.registerStudent);
         this.router.navigate(['/courses']);
+
+
     }
     getAllStudentsByCourseId(courseId: number): RegisterStudent{
         return this.facadeService.getAllStudentsByCourseId(courseId);

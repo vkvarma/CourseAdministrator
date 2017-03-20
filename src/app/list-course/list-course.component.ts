@@ -50,16 +50,6 @@ export class ListCourseComponent implements OnInit, OnChanges {
     }
     updateChanges(isSuccess) {
         let selectedStudentList: Array<Student> = new Array<Student>();
-        /*
-        this.selectedCourseList.forEach(course=>{
-            this.studentList.forEach(student=>{
-                if(student.isSelected){
-                    //console.log(student.firstName + ' ' + student.lastName);
-                    course.registeredStudents =course.registeredStudents + 1;
-                }
-            });
-        });
-        */
         this.studentList.forEach(student => {
             if (student.isSelected) {
                 // console.log(student.firstName + ' ' + student.lastName);

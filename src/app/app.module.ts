@@ -19,6 +19,7 @@ import { ListCourseComponent } from './list-course/list-course.component';
 import { HeaderComponent } from './header/header.component';
 import { CustomModal } from './shared/component/custom-modal.component';
 import { ModalTriggerDirective } from './shared/directive/modal-trigger.directive';
+import { HighLightBorderDirective } from './shared/directive/highlight-border.directive';
 import { JQUERY_TOKEN } from './shared/service/jQuery.service';
 
 //export declare let  jQuery: Object;
@@ -42,7 +43,8 @@ export function jQueryFactory() {
     DashboardComponent,
     HeaderComponent,
     CustomModal,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    HighLightBorderDirective
   ],
   imports: [
     BrowserModule,
