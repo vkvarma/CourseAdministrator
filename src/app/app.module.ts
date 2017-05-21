@@ -22,12 +22,16 @@ import { ModalTriggerDirective } from './shared/directive/modal-trigger.directiv
 import { HighLightBorderDirective } from './shared/directive/highlight-border.directive';
 import { JQUERY_TOKEN } from './shared/service/jQuery.service';
 
+import { NgReduxModule } from 'ng2-redux';
+import { CounterAciton } from './redux/actions/counter-action';
+import { CounterComponent } from './counter/counter.component';
+
 //export declare let  jQuery: Object;
 
 
 // return the global instance of jquery
 export function jQueryFactory() {
-    return window['jQuery'];
+  return window['jQuery'];
 }
 
 
@@ -44,19 +48,22 @@ export function jQueryFactory() {
     HeaderComponent,
     CustomModal,
     ModalTriggerDirective,
-    HighLightBorderDirective
+    HighLightBorderDirective,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routes
+    routes,
+    NgReduxModule
   ],
   providers: [
-      {provide: JQUERY_TOKEN, useFactory: jQueryFactory},
-      CourseService,
-      FacadeService,
-      StudentService
+    { provide: JQUERY_TOKEN, useFactory: jQueryFactory },
+    CourseService,
+    FacadeService,
+    StudentService,
+    CounterAciton
   ],
   bootstrap: [AppComponent]
 })

@@ -6,7 +6,8 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/node_modules": true,
-        "node_modules": true
-    }
-
+        "node_modules": true,
+        "out": true
+    },
+    "vsicons.presets.angular": true
 }
